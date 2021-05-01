@@ -16,8 +16,6 @@ class SimpleChat(WebSocket):
 
     def handleClose(self):
         clients.remove(self)
-        for client in clients:
-            client.sendMessage(self.address[0] + u' - disconnected')
 
 
 server = SimpleWebSocketServer('', port, SimpleChat)
